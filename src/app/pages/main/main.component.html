@@ -1,1 +1,13 @@
-<p>main works!</p>
+<cdk-virtual-scroll-viewport class="viewport" [class.mobile]="isMobile" [itemSize]="isMobile ? 160 : 120">
+    <div class="container">
+        <mat-card *cdkVirtualFor="let item of items | async" class="viewport__item" (click)="showItemModal(item)">
+            <img class="viewport__img" [src]="item.thumbnailUrl" [alt]="item.thumbnailUrl">
+            <div>
+                {{item.title}}
+            </div>
+        </mat-card>
+    </div>
+</cdk-virtual-scroll-viewport>
+<button (click)="itemModal()" class="add-button" mat-fab color="accent">
+    <mat-icon>add</mat-icon>
+</button>

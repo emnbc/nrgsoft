@@ -1,0 +1,33 @@
+.viewport {
+    height: 100%;
+    width: 100%;
+    &__item {
+        height: 110px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        box-sizing: border-box;
+        cursor: pointer;
+        &:first-child {
+            margin-top: 10px;
+        }
+    }
+    &__img {
+        height: 100%;
+        margin-right: 10px;
+        float: left;
+        margin: 0 7px 7px 0;
+    }
+}
+
+.mobile .viewport {
+    &__item {
+        height: 150px;
+    }
+}
+
+.add-button {
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+}

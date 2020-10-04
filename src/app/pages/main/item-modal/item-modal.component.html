@@ -1,0 +1,47 @@
+<h2 *ngIf="data.id" mat-dialog-title>Edit Photo</h2>
+<h2 *ngIf="!data.id" mat-dialog-title>Add Photo</h2>
+
+<form [formGroup]="itemFormGroup">
+
+    <mat-dialog-content class="mat-typography">
+        <div *ngIf="data.id">
+            <mat-form-field class="item-form__field" appearance="fill">
+                <mat-label>Id</mat-label>
+                <input matInput formControlName="id" required>
+            </mat-form-field>
+            <br>
+        </div>
+        <mat-form-field class="item-form__field" appearance="fill">
+            <mat-label>Album Id</mat-label>
+            <input type="number" matInput autocomplete="off" formControlName="albumId" placeholder="Enter albumId" required>
+            <mat-error *ngIf="itemFormGroup.controls['albumId'].invalid">Field required and only number</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="item-form__field" appearance="fill">
+            <mat-label>Title</mat-label>
+            <input matInput autocomplete="off" formControlName="title" placeholder="Enter title" required>
+            <mat-error *ngIf="itemFormGroup.controls['title'].invalid">Please enter at least 3 characters</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="item-form__field" appearance="fill">
+            <mat-label>URL</mat-label>
+            <input matInput autocomplete="off" formControlName="url" placeholder="Enter url" required>
+            <mat-error *ngIf="itemFormGroup.controls['url'].invalid">Please enter at least 3 characters</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="item-form__field" appearance="fill">
+            <mat-label>Thumbnail Url</mat-label>
+            <input matInput autocomplete="off" formControlName="thumbnailUrl" placeholder="Enter thumbnailUrl" required>
+            <mat-error *ngIf="itemFormGroup.controls['thumbnailUrl'].invalid">Please enter at least 3 characters</mat-error>
+        </mat-form-field>
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" (click)="submitForm()">
+        <span *ngIf="data.id">Edit</span>
+        <span *ngIf="!data.id">Add</span>
+    </button>
+    <button mat-raised-button mat-dialog-close cdkFocusInitial>Close</button>
+    </mat-dialog-actions>
+
+</form>

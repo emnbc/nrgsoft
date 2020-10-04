@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   }
 
   private detectMobile() {
-    this.app.isMobile.next(window.innerWidth <= 600 ? true : false);
+    this.app.isMobile.next(window.innerWidth <= 800 ? true : false);
   }
 
 }

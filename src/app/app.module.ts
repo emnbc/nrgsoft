@@ -11,6 +11,11 @@ import { HeaderModule } from './core/header/header.module';
 import { FooterModule } from './core/footer/footer.module';
 import { MainModule } from './pages/main/main.module';
 
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { ItemEffects } from './stores/items/item.effects';
+import { itemReducer } from './stores/items/item.reducer';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -22,7 +27,9 @@ import { MainModule } from './pages/main/main.module';
     SharedModule,
     HeaderModule,
     FooterModule,
-    MainModule
+    MainModule,
+    StoreModule.forRoot({ items: itemReducer }),
+    EffectsModule.forRoot([ItemEffects])
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: MainInterceptor, multi: true }

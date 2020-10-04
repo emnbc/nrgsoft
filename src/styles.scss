@@ -1,9 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-* {
-    box-sizing: border-box;
-}
-
 html {
     height: 100%;
     font-size: 14px;
@@ -27,4 +23,11 @@ body {
     &-right {
         margin-right: 8px !important;
     }
+}
+
+.container {
+    width: 94%;
+    max-width: 1140px;
+    margin-right: auto;
+    margin-left: auto;
 }

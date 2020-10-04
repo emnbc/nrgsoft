@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Photo</h2>
+<mat-dialog-content class="mat-typography">
+
+  <p><img class="modal__img" [src]="data.url" [alt]="data.url"></p>
+  <p>{{ data.title }}</p>
+
+</mat-dialog-content>
+<mat-dialog-actions class="modal__buttons">
+  <div>
+    <button mat-raised-button color="warn" (click)="delete(data.id)">Delete</button>
+    <button mat-raised-button (click)="onEdit(data)">Edit</button>
+  </div>
+  <div>
+    <button mat-raised-button mat-dialog-close cdkFocusInitial>Close</button>
+  </div>
+</mat-dialog-actions>
